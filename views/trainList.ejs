@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Trains</title>
+</head>
+<body>
+    <h1>Available Trains</h1>
+    <form action="/trains/search" method="GET">
+        <label for="date">Date of Journey:</label>
+        <input type="date" id="date" name="date" required><br>
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        <% trains.forEach(train => { %>
+            <li>
+                <strong><%= train.name %></strong> - <%= train.source %> to <%= train.destination %> at <%= train.time %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
